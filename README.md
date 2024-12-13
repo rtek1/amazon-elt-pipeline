@@ -22,3 +22,6 @@ BigQuery
 
 DBT Lineage Graph
 ![DBT Lineage Graph](lineage_graph_dbt.png)
+
+Power BI Dashboard
+![Power BI Dashboard](powerbi_visual.png)
