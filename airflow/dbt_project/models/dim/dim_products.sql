@@ -52,4 +52,4 @@ categorized_products AS (
 )
 
 SELECT * 
-FROM categorized_products;
+FROM categorized_products

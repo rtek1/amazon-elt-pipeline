@@ -2,6 +2,7 @@
 WITH category_revenue_per_user AS (
     SELECT
         f.user_id,
+        u.simple_user_name,  -- Include simple_user_name from dim_users
         p.category,
         SUM(f.actual_price) AS total_revenue,
         COUNT(f.product_id) AS order_count
@@ -10,12 +11,16 @@ WITH category_revenue_per_user AS (
     LEFT JOIN
         {{ ref('dim_products') }} AS p
         ON f.product_id = p.product_id
+    LEFT JOIN
+        {{ ref('dim_users') }} AS u
+        ON f.user_id = u.user_id  -- Join dim_users for simple_user_name
     GROUP BY
-        f.user_id, p.category
+        f.user_id, u.simple_user_name, p.category  -- Include all non-aggregated columns
 ),
 ranked_categories AS (
     SELECT
         user_id,
+        simple_user_name,
         category,
         total_revenue,
         order_count,
@@ -25,6 +30,7 @@ ranked_categories AS (
 )
 SELECT
     user_id,
+    simple_user_name,
     category AS top_category,
     total_revenue,
     order_count
