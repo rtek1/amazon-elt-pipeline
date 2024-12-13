@@ -2,7 +2,7 @@
 
 - The purpose of this project is to learn how to use the following tools specifically: Docker, Apache Airflow, BigQuery, and DBT. 
 
-- This project utilizes running Apache Airflow locally inside a Docker container. Airflow runs my data extraction task, loads it into BigQuery, and then runs my DBT transformations. The resulting views from my DBT transformations are then visualized in Power BI. The Power BI visuals are minimal as the focus of this project was to successfully build the data pipeline within Airflow. 
+- This project utilizes running Apache Airflow locally inside a Docker container. Airflow runs my data extraction task, loads it into BigQuery, and then triggers DBT to execute the SQL transformations within BigQuery itself. The resulting views are then visualized in Power BI. Power BI connects directly to my data model in BigQuery using the direct query function. The Power BI visuals are minimal as the focus of this project was to successfully build the data pipeline within Airflow. 
 
 - Version control done within this GitHub repository using git add. git commit, and git push. While using .gitignore to leave out potentially sensitive data. 
 
